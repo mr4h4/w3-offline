@@ -20,7 +20,7 @@ git clone https://github.com/mr4h4/w3-offline.git
 
 2. Open the following file in your browser:
 
-./W3Schools-Offline/www.w3schools.com/index.html
+./w3-offline/www.w3schools.com/index.html
 
 You can now browse the full W3Schools site offline — no server required.
 
@@ -28,7 +28,7 @@ You can now browse the full W3Schools site offline — no server required.
 
 ## 📁 Folder Structure
 
-W3Schools-Offline/
+w3-offline/
 └── www.w3schools.com/
     ├── index.html
     ├── html/
@@ -40,22 +40,16 @@ W3Schools-Offline/
 
 This structure mirrors the original website, making navigation intuitive and seamless.
 
----
-
-❤️ Support
-If you find this project helpful and would like to support its development,
-you can buy me a coffee via Tether (USDT):
-
-USDT(BSC): 0xec36cd8F04F0780dA46A9e85D36521f64E3e45dD
-
-Thank you for your support! ☕️
-
----
-
-📄 Disclaimer
+## 📄 Disclaimer
 
 All original content belongs to W3Schools.
 This archive is provided strictly for educational and offline use only.
 Please respect W3Schools' rights and terms of service.
 
+## Origin and license
+
+Based on [vahid-kazemi/W3Schools_offline](https://github.com/vahid-kazemi/W3Schools_offline)
+by Vahid Kazemi, under [GPL-3.0](LICENSE).
+
+This fork keeps the same GPL-3.0 license.
 
