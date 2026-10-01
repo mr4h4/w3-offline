@@ -16,7 +16,7 @@ Everything is fully accessible **without an internet connection**.
 1. Clone or download this repository:
 
 bash:
-git clone https://github.com/vahid-kazemi/W3Schools-Offline.git
+git clone https://github.com/mr4h4/w3-offline.git
 
 2. Open the following file in your browser:
 
