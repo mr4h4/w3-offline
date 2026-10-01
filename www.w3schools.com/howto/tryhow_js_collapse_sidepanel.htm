@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidepanel  {
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  height: 250px;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color:#444;
+}
+</style>
+</head>
+<body>
+
+<div id="mySidepanel" class="sidepanel">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="tryhow_js_collapse_sidepanel.htm#">About</a>
+  <a href="tryhow_js_collapse_sidepanel.htm#">Services</a>
+  <a href="tryhow_js_collapse_sidepanel.htm#">Clients</a>
+  <a href="tryhow_js_collapse_sidepanel.htm#">Contact</a>
+</div>
+
+<button class="openbtn" onclick="openNav()">&#9776; Toggle Sidepanel</button>  
+<h2>Collapsed Sidepanel</h2>
+<p>Click on the hamburger menu/bar icon to open the sidepanel.</p>
+
+<script>
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
+</script>
+   
+</body>
+</html> 

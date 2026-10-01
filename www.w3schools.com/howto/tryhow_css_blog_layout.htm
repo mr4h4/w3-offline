@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h2>Blog Name</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 7, 2017</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
+    <div class="card">
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Sep 2, 2017</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg">Image</div><br>
+      <div class="fakeimg">Image</div><br>
+      <div class="fakeimg">Image</div>
+    </div>
+    <div class="card">
+      <h3>Follow Me</h3>
+      <p>Some text..</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+</body>
+</html>

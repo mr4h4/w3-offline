@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="5/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+  <h1>Login Example</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+
+<form class="w3-container w3-card-4">
+
+<p>
+<input class="w3-input" type="text" style="width:90%" required>
+<label>Name</label></p>
+<p>
+<input class="w3-input" type="password" style="width:90%" required>
+<label>Password</label></p>
+
+<p>
+<input class="w3-radio" type="radio" name="gender" value="male" checked>
+<label>Male</label></p>
+
+<p>
+<input class="w3-radio" type="radio" name="gender" value="female">
+<label>Female</label></p>
+
+<p>
+<input class="w3-radio" type="radio" name="gender" value="" disabled>
+<label>Don't know (Disabled)</label></p>
+
+<p>
+<input id="milk" class="w3-check" type="checkbox" checked="checked">
+<label>Stay logged in</label></p>
+
+<p>
+<button class="w3-button w3-section w3-teal w3-ripple"> Log in </button></p>
+
+</form>
+
+</div>
+
+</body>
+</html> 

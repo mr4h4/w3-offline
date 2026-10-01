@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="5/w3.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+<style>
+body {font-family: "Raleway", Arial, sans-serif}
+.w3-row img {margin-bottom: -8px}
+</style>
+</head>
+<body>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+  <!-- Header -->
+  <header class="w3-container w3-xlarge w3-padding-24">
+    <a href="tryw3css_templates_streetart.htm#" class="w3-left w3-button w3-white">MY ART</a>
+    <a href="tryw3css_templates_streetart.htm#about" class="w3-right w3-button w3-white">About</a>
+  </header>
+
+  <!-- Photo Grid -->
+  <div class="w3-row">
+    <div class="w3-half">
+      <img src="../w3images/streetart.jpg" style="width:100%">
+      <img src="../w3images/streetart2.jpg" style="width:100%">
+      <img src="../w3images/streetart5.jpg" style="width:100%">
+    </div>
+
+    <div class="w3-half">
+      <img src="../w3images/streetart3.jpg" style="width:100%">
+      <img src="../w3images/streetart4.jpg" style="width:100%">
+    </div>
+  </div>
+  
+<!-- End Page Content -->
+</div>
+
+<!-- Footer / About Section -->
+<footer class="w3-light-grey w3-padding-64 w3-center" id="about">
+  <h2>About</h2>
+  <img src="../w3images/boy.jpg" class="w3-image w3-padding-32" width="300" height="300">
+  <form style="margin:auto;width:60%" action="../action_page.php.html" target="_blank">
+    <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+    <p class="w3-large w3-text-pink">Do not hesitate to contact me!</p>
+    <div class="w3-section">
+      <label><b>Name</b></label>
+      <input class="w3-input w3-border" type="text" required name="Name">
+    </div>
+    <div class="w3-section">
+      <label><b>Email</b></label>
+      <input class="w3-input w3-border" type="text" required name="Email">
+    </div>
+    <div class="w3-section">
+      <label><b>Message</b></label>
+      <input class="w3-input w3-border" required name="Message">
+    </div>
+    <button type="submit" class="w3-button w3-block w3-dark-grey">Send</button>
+  </form>
+  <br>
+  <p>Powered by <a href="default.asp.html" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+ 
+</body>
+</html>

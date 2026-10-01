@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="5/w3.css">
+</head>
+<body>
+
+<div class="w3-display-container" style="margin-bottom:50px">
+  <img src="../w3images/beach3.jpg" style="width:100%">
+  <div class="w3-display-bottomleft w3-container w3-amber w3-hover-orange w3-hide-small"
+   style="bottom:10%;opacity:0.7;width:70%">
+  <h2><b>4 Good Reasons<br>For travelling with us</b></h2>
+</div>
+</div>
+
+<div class="w3-row w3-container" style="margin:50px 0">
+<div class="w3-half w3-container">
+  <div class="w3-topbar w3-border-amber">
+    <img src="../w3images/cellphone.jpg" style="width:100%">
+    <h2>Smart Vacation</h2>
+    <p>Full vacation control from your cell phone.</p>
+  </div>
+</div>
+
+<div class="w3-half w3-container">
+  <div class="w3-topbar w3-border-amber">
+    <img src="../w3images/sealions.jpg" style="width:100%">
+    <h2>Super Offers</h2>
+    <p>Up to 50% offers. Always 25% student offers.</p>
+  </div>
+</div>
+</div>
+
+<div class="w3-row w3-container" style="margin:50px 0">
+<div class="w3-half w3-container">
+  <div class="w3-topbar w3-border-orange">
+    <img src="../w3images/truck.jpg" style="width:100%">
+    <h2>Car Rental Included</h2>
+    <p>Wherever you travel our car rental is included.</p>
+  </div>
+</div>
+
+<div class="w3-half w3-container">
+  <div class="w3-topbar w3-border-orange">
+    <img src="../w3images/nowornever.jpg" style="width:100%">
+    <h2>Realize Your Dreams</h2>
+    <p>Don't wait until it is to late.</p>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

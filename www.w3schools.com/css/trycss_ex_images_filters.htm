@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<style>
+body {
+  background-color:white;
+}
+img {
+  width: 33%;
+  height: auto;
+  float: left; 
+  max-width: 235px;
+}
+
+.blur {filter: blur(4px);}
+.brightness {filter: brightness(250%);}
+.contrast {filter: contrast(180%);}
+.grayscale {filter: grayscale(100%);}
+.huerotate {filter: hue-rotate(180deg);}
+.invert {filter: invert(100%);}
+.opacity {filter: opacity(50%);}
+.saturate {filter: saturate(7);}
+.sepia {filter: sepia(100%);}
+.shadow {filter: drop-shadow(8px 8px 10px green);}
+</style>
+</head>
+<body>
+
+<h2>Image Filters</h2>
+
+<img src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+<img class="blur" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+<img class="brightness" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+<img class="contrast" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+<img class="grayscale" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+<img class="huerotate" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+<img class="invert" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+<img class="opacity" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+<img class="saturate" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+<img class="sepia" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+<img class="shadow" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+
+</body>
+</html>
+
+<!--#crumbs=
+<div id='breadcrumb'>
+<ul>
+<li><a href='/default.asp'>Home</a></li>
+<li><a href='/css/default.asp'>CSS</a></li>
+<li><a href='/css/css3_images.asp'>CSS Style Images</a></li>
+<li>Tryit: Different filters on image</li>
+</ul>
+</div>
+-->

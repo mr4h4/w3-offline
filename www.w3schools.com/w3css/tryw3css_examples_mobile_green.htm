@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="5/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-green.css">
+<body style="max-width:400px;margin:16px;border:1px solid #ccc">
+
+<header class="w3-container w3-card-4 w3-theme">
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+  <h1>Movies</h1>
+</header>
+
+<div class="w3-panel">
+<div class="w3-row">
+  <div class="w3-col s3">
+    <img src="img_avatar.jpg" style="width:100%">
+  </div>
+  <div class="w3-col s9 w3-container">
+    <h3>Frozen</h3>
+    <p>The response to the animations was ridiculous.</p>
+  </div>
+</div>  
+<hr>
+<div class="w3-row">
+  <div class="w3-col s3">
+    <img src="img_avatar.jpg" style="width:100%">
+  </div>
+  <div class="w3-col s9 w3-container">
+    <h3>The Fault in Our Stars</h3>
+    <p>Touching, gripping and genuinely well made.</p>
+  </div>
+</div>
+<hr>
+<div class="w3-row">
+  <div class="w3-col s3">
+    <img src="img_avatar.jpg" style="width:100%">
+  </div>
+  <div class="w3-col s9 w3-container">
+    <h3>The Avengers</h3>
+    <p>A huge success for Marvel and Disney.</p>
+  </div>
+</div>
+</div>
+
+<footer class="w3-container w3-theme-l2" style="position:relative">
+  <a class="w3-btn w3-xlarge w3-circlew3-theme-action w3-right" style="position:absolute;top:-28px;right:16px;">+</a>
+  <p>Copyright 2016</p>
+</footer>
+
+<div class="w3-container w3-theme-dark w3-xlarge">&laquo;<span class="w3-right">&raquo;</span></div>
+
+</body>
+</html> 

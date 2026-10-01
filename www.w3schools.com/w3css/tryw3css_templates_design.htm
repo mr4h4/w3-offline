@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="5/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="w3-content" style="max-width:1200px">
+
+<div class="w3-panel">
+  <i class="w3-xlarge fa fa-bars"></i>
+</div>
+<!-- First Grid: Logo & About -->
+<div class="w3-row">
+<div class="w3-half w3-container">
+  <h1 class="w3-xxlarge w3-text-light-grey">Hello</h1>
+  <h1 class="w3-xxlarge w3-text-grey">We are</h1>
+  <h1 class="w3-jumbo">InShock</h1>
+</div>
+<div class="w3-half w3-container w3-xlarge w3-text-grey">
+  <p class="">We build design teams
+  - we break things down and build it better
+  - we deliver the best of solutions</p>
+  <p>InShock means powerfull simplicity</p>
+</div>
+</div>
+
+<!-- Second Grid: Resent -->
+<div class="w3-panel w3-text-grey">
+<h4>MOST RECENT WORK:</h4>
+</div>
+<div class="w3-row">
+<div class="w3-half w3-container">
+  <img src="../w3images/house1.jpg" style="width:100%">
+</div>
+<div class="w3-half w3-container">
+  <img src="../w3images/house_arch.jpg" style="width:100%">
+  <p class="w3-xlarge w3-text-grey">
+  Demos, Logos, Reports, Names, Events, Media, Wordpress, Google, Books, Optimisations</p>
+</div>
+</div>
+
+<!-- Footer -->
+<div class="w3-row w3-section">
+  <div class="w3-third w3-container w3-black w3-large" style="height:250px">
+    <h2>Contact Info</h2>
+    <p><i class="fa fa-map-marker" style="width:30px"></i> Chicago, US</p>
+    <p><i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515</p>
+    <p><i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com</p>
+  </div>
+  <div class="w3-third w3-center w3-large w3-dark-grey w3-text-white" style="height:250px">
+    <h2>Contact Us</h2>
+    <p>If you have an idea.</p>
+    <p>What are you waiting for?</p>
+  </div>
+  <div class="w3-third w3-center w3-large w3-grey w3-text-white" style="height:250px">
+    <h2>Like Us</h2>
+    <i class="w3-xlarge fa fa-facebook-official"></i><br>
+    <i class="w3-xlarge fa fa-pinterest-p"></i><br>
+    <i class="w3-xlarge fa fa-twitter"></i><br>
+    <i class="w3-xlarge fa fa-flickr"></i><br>
+    <i class="w3-xlarge fa fa-linkedin"></i>
+  </div>
+</div>
+<div class="w3-container w3-text-grey">
+  <p>Powered by <a href="default.asp.html" target="_blank">w3.css</a></p>
+</div>
+
+</body>
+</html>

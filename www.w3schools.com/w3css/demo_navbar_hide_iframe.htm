@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="5/w3.css">
+<body>
+<script>/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+
+<div class="w3-bar w3-black">
+  <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" href="javascript:void(0)" onclick="myFunction()">&#9776;</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button">Home</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hide-small">Link 1</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hide-small">Link 2</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hide-small">Link 3</a>
+</div>
+
+<div id="demo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium">
+  <a href="demo_navbar_hide_iframe.htm#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="demo_navbar_hide_iframe.htm#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="demo_navbar_hide_iframe.htm#" class="w3-bar-item w3-button">Link 3</a>
+</div>
+
+<div class="w3-container">
+  <p>Resize the browser window to see the effect.</p>
+</div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("demo");
+    if (x.classList) { 
+        x.classList.toggle("w3-show");
+    } else {
+        // Fallback for IE9 and earlier
+        if (x.className.indexOf("w3-show") == -1) 
+        x.className += " w3-show";
+        else 
+            x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html> 

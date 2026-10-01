@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<style>
+#div1
+{
+position: relative;
+height: 200px;
+width: 200px;
+margin: 50px;
+padding:10px;
+border: 1px solid black;
+}
+
+#div2
+{
+padding:50px;
+position: absolute;
+border: 1px solid black;
+background-color: red;
+-webkit-transform: rotateX(45deg); /* Safari 3-8 */
+transform: rotateX(45deg);
+}
+</style>
+<script>
+function changePersp(value)
+{
+document.getElementById('div1').style.perspective=value + "px";
+document.getElementById('div1').style.webkitPerspective=value + "px";
+document.getElementById('persp').innerHTML=value;
+}
+
+function changeOrgPersp()
+{
+var x=document.getElementById('operspx').value;
+var y=document.getElementById('operspy').value;
+document.getElementById('div1').style.perspectiveOrigin=x + '% ' + y + '%';
+document.getElementById('div1').style.webkitPerspectiveOrigin=x + '% ' + y + '%';
+document.getElementById('opersp').innerHTML=x + "% " + y + "%";      
+}
+</script>
+</head>
+
+<body onload="changePersp(200);">
+
+<div id="div1">
+  <div id="div2">HELLO</div>
+</div>
+
+Change perspective:<br>
+<input type="range" min="45" max="5000" value="200" onchange="changePersp(this.value)" /><br>
+perspective: <span id="persp"></span>;<br>
+<br>
+Change the Origins:<br>
+X-axis:<input type="range" min="-100" max="200" value="50" onchange="changeOrgPersp()" id="operspx" /><br>
+Y-axis:<input type="range" min="-100" max="200" value="50" onchange="changeOrgPersp()" id="operspy" /><br>
+perspective-origin: <span id="opersp">50% 50%</span>;
+
+<p>Safari 4-8 support an alternative, the -webkit-perspecitve-origin property.</p>
+
+</body>
+</html>

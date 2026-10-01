@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/oldtryitfiles/showrazor.css" />
+</head>
+
+<body>
+<span class="marked">
+@{<br>
+var imagePath=&quot;&quot;; <br>
+if( Request[&quot;Choice&quot;] != null)<br>
+&nbsp;&nbsp; {imagePath=&quot;images/&quot; + Request[&quot;Choice&quot;];} <br>
+} <br>
+</span>&lt;!DOCTYPE html&gt; <br>
+&lt;html&gt; <br>
+&lt;body&gt; <br>
+&lt;h1&gt;Display Images&lt;/h1&gt; <br>
+&lt;form method=&quot;post&quot; action=&quot;&quot;&gt; <br>
+I want to see: <br>
+&lt;select name=&quot;Choice&quot;&gt; <br>
+&nbsp;&nbsp;
+&lt;option value=&quot;Pic1.jpg&quot;&gt;Photo 1&lt;/option&gt; <br>
+&nbsp;&nbsp;
+&lt;option value=&quot;Pic2.jpg&quot;&gt;Photo 2&lt;/option&gt; <br>
+&nbsp;&nbsp;
+&lt;option value=&quot;Pic3.jpg&quot;&gt;Photo 3&lt;/option&gt; <br>
+&lt;/select&gt; <br>
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt; <br>
+<span class="marked">
+@if(imagePath != &quot;&quot;)<br>
+{<br></span>&lt;p&gt;<br>&lt;img src=&quot;<span class="marked">@imagePath</span>&quot; alt=&quot;Sample&quot;&gt;<br>
+&lt;/p&gt;<span class="marked"><br>}</span>&nbsp; <br>
+&lt;/form&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+</body>
+</html>

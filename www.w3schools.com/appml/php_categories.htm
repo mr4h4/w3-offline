@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<meta charset="utf-8">
+<title>Categories</title>
+<link rel="stylesheet" href="../w3css/4/w3.css">
+<script src="2.0.3/appml.js"></script>
+</head>
+<body>
+<div class="w3-container w3-content">
+<h1>Categories</h1>
+<div id="Form01" class="w3-container w3-light-grey w3-padding-large w3-margin-bottom" appml-data="appml.php?model=model_categoriesform" appml-controller="myFormController" style="display:none;">
+  <div appml-include-html="inc_formcommands.htm"></div>
+  <p>
+    <label>CategoryName:</label>
+    <input id="CategoryName" class="w3-input w3-border">
+  </p>
+  <p>
+    <label>Description:</label>
+    <input id="Description" class="w3-input w3-border">
+  </p>
+</div>
+
+<div appml-data="appml.php?model=model_categorieslist">
+  <div appml-include-html="inc_listcommands_nofilter.htm"></div>
+  <table class="w3-table-all">
+  <tr>
+    <th></th>
+    <th>Category</th>
+    <th>Description</th>
+  </tr>
+  <tr appml-repeat="records">
+    <td style="cursor:pointer" onclick="appml('Form01').run({{CategoryID}})">&#9998;</td>
+    <td>{{CategoryName}}</td>
+    <td>{{Description}}</td>
+  </tr>
+  </table>
+</div>
+</div>
+
+<script>
+function myFormController($appml) {
+    if ($appml.message == "ready") {return -1;}
+    if ($appml.message == "loaded") {
+        document.getElementById("Form01").style.display = "";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/oldtryitfiles/showrazor.css" />
+</head>
+
+<body>
+<span class="marked">@{<br>
+var db = Database.Open(&quot;SmallBakery&quot;);&nbsp;<br>
+var query = &quot;SELECT * FROM Product&quot;;&nbsp;<br>
+}</span><br>
+&lt;html&gt;&nbsp;<br>
+&lt;body&gt;&nbsp;<br>
+&lt;h1&gt;Small Bakery Products&lt;/h1&gt;&nbsp;<br>
+&lt;table border=&quot;1&quot; width=&quot;100%&quot;&gt;&nbsp;<br>
+&lt;tr&gt;<br>
+&lt;th&gt;Id&lt;/th&gt;&nbsp;<br>
+&lt;th&gt;Product&lt;/th&gt;&nbsp;<br>
+&lt;th&gt;Description&lt;/th&gt;&nbsp;<br>
+&lt;th&gt;Price&lt;/th&gt;&nbsp;<br>
+&lt;/tr&gt;<br>
+<span class="marked">@foreach(var row in db.Query(query))<br>
+{</span><br>
+&lt;tr&gt;&nbsp;<br>
+&lt;td&gt;<span class="marked">@row.Id</span>&lt;/td&gt;&nbsp;<br>
+&lt;td&gt;<span class="marked">@row.Name</span>&lt;/td&gt;&nbsp;<br>
+&lt;td&gt;<span class="marked">@row.Description</span>&lt;/td&gt;&nbsp;<br>
+&lt;td style=&quot;text-align:right&quot;&gt;<span class="marked">@row.Price</span>&lt;/td&gt;&nbsp;<br>
+&lt;/tr&gt;&nbsp;<br>
+<span class="marked">}</span><br>
+&lt;/table&gt;&nbsp;<br>
+&lt;/body&gt;&nbsp;<br>
+&lt;/html&gt;
+</body>
+
+</html>

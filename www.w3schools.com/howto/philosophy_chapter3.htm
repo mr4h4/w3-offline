@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<title>Logic</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../w3css/4/w3.css">
+</head>
+
+<body class="w3-content">
+<div class="w3-container">
+<h1>3. Logic</h1>
+<p>Logic is the part of Philosophy that studies the nature of Logic.</p>
+<hr>
+<h2>What is Logic?</h2>
+<ul>
+<li>Deductive Logic</li>
+<li>Inductive Logic</li>
+</ul>
+<hr>
+<h2>Deductive Reasoning (Logic)</h2>
+<p>Mathematical Logic and Philosophical Logic are associated with Deductive Reasoning.</p>
+<p>Deductive Logic uses "True" and "False" as tools for Reasoning:</p>
+<p>All men are mortal. Socrates is a man. Therefore: Socrates is mortal.</p>
+<p>When it rains, things outside get wet. The grass is outside.
+Therefore: when it rains, the grass gets wet.</p>
+<p>It can also go wrong:</p>
+<p>Stones cannot fly. Mother cannot fly. Therefore: Mother is a stone.</p>
+<hr>
+<h2>Inductive Reasoning (Logic)</h2>
+<p>Philosophical Logic are also associated with Inductive Reasoning.</p>
+<p>Inductive Logic uses "Strong" and "Weak" as tools for Reasoning.</p>
+
+</div>
+</body>
+</html>

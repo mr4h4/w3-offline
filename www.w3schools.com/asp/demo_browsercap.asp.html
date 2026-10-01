@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+
+
+
+<table border="1" width="65%">
+  <tr>
+    <td width="52%">Client OS</td>
+    <td width="48%">unknown</td>
+  </tr>
+  <tr>
+    <td >Web Browser</td>
+    <td >Default</td>
+  </tr>
+  <tr>
+    <td>Browser version</td>
+    <td>0.0</td>
+  </tr>
+  <tr>
+    <td>Frame support?</td>
+    <td>False</td>
+  </tr>
+  <tr>
+    <td>Table support?</td>
+    <td>True</td>
+  </tr>
+  <tr>
+    <td>Sound support?</td>
+    <td>False</td>
+  </tr>
+  <tr>
+    <td>Cookies support?</td>
+    <td>False</td>
+  </tr>
+  <tr>
+    <td>VBScript support?</td>
+    <td>False</td>
+  </tr>
+  <tr>
+    <td>JavaScript support?</td>
+    <td>False</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

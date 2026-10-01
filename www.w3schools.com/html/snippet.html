@@ -1,0 +1,100 @@
+
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+</head>
+
+<table>
+<tr>
+  <td>Alfreds Futterkiste</td>
+  <td>Berlin</td>
+  <td>Germany</td>
+</tr>
+<tr>
+  <td>Berglunds snabbköp</td>
+  <td>Luleå</td>
+  <td>Sweden</td>
+</tr>
+<tr>
+  <td>Centro comercial Moctezuma</td>
+  <td>México D.F.</td>
+  <td>Mexico</td>
+</tr>
+<tr>
+  <td>Ernst Handel</td>
+  <td>Graz</td>
+  <td>Austria</td>
+</tr>
+<tr>
+  <td>FISSA Fabrica Inter. Salchichas S.A.</td>
+  <td>Madrid</td>
+  <td>Spain</td>
+</tr>
+<tr>
+  <td>Galería del gastrónomo</td>
+  <td>Barcelona</td>
+  <td>Spain</td>
+</tr>
+<tr>
+  <td>Island Trading</td>
+  <td>Cowes</td>
+  <td>UK</td>
+</tr>
+<tr>
+  <td>Königlich Essen</td>
+  <td>Brandenburg</td>
+  <td>Germany</td>
+</tr>
+<tr>
+  <td>Laughing Bacchus Wine Cellars</td>
+  <td>Vancouver</td>
+  <td>Canada</td>
+</tr>
+<tr>
+  <td>Magazzini Alimentari Riuniti</td>
+  <td>Bergamo</td>
+  <td>Italy</td>
+</tr>
+<tr>
+  <td>North/South</td>
+  <td>London</td>
+  <td>UK</td>
+</tr>
+<tr>
+  <td>Paris spécialités</td>
+  <td>Paris</td>
+  <td>France</td>
+</tr>
+<tr>
+  <td>Rattlesnake Canyon Grocery</td>
+  <td>Albuquerque</td>
+  <td>USA</td>
+</tr>
+<tr>
+  <td>Simons bistro</td>
+  <td>København</td>
+  <td>Denmark</td>
+</tr>
+<tr>
+  <td>The Big Cheese</td>
+  <td>Portland</td>
+  <td>USA</td>
+</tr>
+<tr>
+  <td>Vaffeljernet</td>
+  <td>Århus</td>
+  <td>Denmark</td>
+</tr>
+<tr>
+  <td>Wolski Zajazd</td>
+  <td>Warszawa</td>
+  <td>Poland</td>
+</tr>
+</table>

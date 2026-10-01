@@ -1,0 +1,26 @@
+<html>
+<body style="font-family:Arial;font-size:12pt;background-color:#EEEEEE">
+<script>/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<div style="background-color:teal;color:white;padding:4px"><span style="font-weight:bold">Belgian Waffles - </span>$5.95</div>
+<div style="margin-left:20px;margin-bottom:1em;font-size:10pt">
+<p>Two of our famous Belgian Waffles with plenty of real maple syrup<span style="font-style:italic"> (650 calories per serving)</span></p>
+</div>
+<div style="background-color:teal;color:white;padding:4px"><span style="font-weight:bold">Strawberry Belgian Waffles - </span>$7.95</div>
+<div style="margin-left:20px;margin-bottom:1em;font-size:10pt">
+<p>Light Belgian waffles covered with strawberries and whipped cream<span style="font-style:italic"> (900 calories per serving)</span></p>
+</div>
+<div style="background-color:teal;color:white;padding:4px"><span style="font-weight:bold">Berry-Berry Belgian Waffles - </span>$8.95</div>
+<div style="margin-left:20px;margin-bottom:1em;font-size:10pt">
+<p>Light Belgian waffles covered with an assortment of fresh berries and whipped cream<span style="font-style:italic"> (900 calories per serving)</span></p>
+</div>
+<div style="background-color:teal;color:white;padding:4px"><span style="font-weight:bold">French Toast - </span>$4.50</div>
+<div style="margin-left:20px;margin-bottom:1em;font-size:10pt">
+<p>Thick slices made from our homemade sourdough bread<span style="font-style:italic"> (600 calories per serving)</span></p>
+</div>
+<div style="background-color:teal;color:white;padding:4px"><span style="font-weight:bold">Homestyle Breakfast - </span>$6.95</div>
+<div style="margin-left:20px;margin-bottom:1em;font-size:10pt">
+<p>Two eggs, bacon or sausage, toast, and our ever-popular hash browns<span style="font-style:italic"> (950 calories per serving)</span></p>
+</div>
+</body>
+</html>

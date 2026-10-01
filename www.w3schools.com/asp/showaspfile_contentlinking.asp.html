@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+
+<p>
+The example below builds a table of contents.
+</p>
+
+<ul>
+
+<li><a href="https://www.w3schools.com/asp/asp_intro.asp">
+ASP Intro</a>
+
+<li><a href="asp_syntax.asp.html">
+ASP Syntax</a>
+
+<li><a href="asp_variables.asp.html">
+ASP Variables</a>
+
+<li><a href="asp_procedures.asp.html">
+ASP Procedures</a>
+
+</ul>
+
+<p>
+The text file contains a list of page urls
+and link descriptions. It contains one line of text for each page. Note that the url and
+description MUST be separated by the TAB character.
+</p>
+<p>
+<a href="text/links.txt"><img src="../images/btn_view_text.gif"></a>
+</p>
+</body>
+</html>

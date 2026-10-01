@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="5/w3.css">
+<style>
+@media screen and (max-width:463px){.w3-sidebar{width:90px !important}#main{
+  margin-right:90px !important;
+}}
+</style>
+<body class="w3-white">
+
+<div class="w3-sidebar w3-bar-block w3-white w3-card" style="width:25%;right:0;">
+  <h5 class="w3-bar-item">Menu</h5>
+  <a class="w3-bar-item w3-button" href="javascript:void(0)">Link 1</a>
+  <a class="w3-bar-item w3-button" href="javascript:void(0)">Link 2</a>
+  <a class="w3-bar-item w3-button" href="javascript:void(0)">Link 3</a>
+</div>
+
+<div id="main" style="margin-right:25%">
+
+<header class="w3-container w3-teal">
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+  <h3>My Page</h3>
+</header>
+
+<div class="w3-container">
+  <p>Page content</p>
+  <p>Right-side navigation.</p>
+</div>
+
+</div>
+      
+</body>
+</html> 

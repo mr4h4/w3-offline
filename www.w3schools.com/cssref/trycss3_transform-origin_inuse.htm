@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<style>
+#div1
+{
+position: relative;
+height: 200px;
+width: 200px;
+margin: 50px;
+padding:10px;
+border: 1px solid black;
+}
+
+#div2
+{
+padding:50px;
+position: absolute;
+border: 1px solid black;
+background-color: red;
+transform: rotate(45deg);
+transform-origin:20% 40%;
+}
+</style>
+<script>
+function changeRot(value)
+{
+document.getElementById('div2').style.transform="rotate(" + value + "deg)";
+document.getElementById('div2').style.msTransform="rotate(" + value + "deg)";
+document.getElementById('div2').style.webkitTransform="rotate(" + value + "deg)";
+document.getElementById('div2').style.MozTransform="rotate(" + value + "deg)";
+document.getElementById('div2').style.OTransform="rotate(" + value + "deg)";
+document.getElementById('persp').innerHTML=value + "deg";
+}
+
+function changeOrg()
+{
+var x=document.getElementById('ox').value;
+var y=document.getElementById('oy').value;
+document.getElementById('div2').style.transformOrigin=x + '% ' + y + '%';
+document.getElementById('div2').style.msTransformOrigin=x + '% ' + y + '%';
+document.getElementById('div2').style.webkitTransformOrigin=x + '% ' + y + '%';
+document.getElementById('div2').style.MozTransformOrigin=x + '% ' + y + '%';
+document.getElementById('div2').style.OTransformOrigin=x + '% ' + y + '%';
+document.getElementById('origin').innerHTML=x + "% " + y + "%";      
+}
+</script>
+</head>
+
+<body>
+
+<p>Rotate the red div element, try changing its X-axis and Y-axis:</p>
+
+<div id="div1">
+  <div id="div2">HELLO</div>
+</div>
+
+Rotate:
+<input type="range" min="-360" max="360" value="45" onchange="changeRot(this.value)" />
+transform: rotateY:(<span id="persp">45deg</span>);
+<br><br>
+X-axis:<input type="range" min="-100" max="200" value="20" onchange="changeOrg()" id="ox" /><br>
+Y-axis:<input type="range" min="-100" max="200" value="40" onchange="changeOrg()" id="oy" />
+transform-origin: <span id="origin">20% 40%</span>;
+ 
+</body>
+</html>

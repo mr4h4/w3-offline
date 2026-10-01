@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<title>Aesthetics</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../w3css/4/w3.css">
+</head>
+
+<body class="w3-content">
+<div class="w3-container">
+<h1>5. Aesthetics</h1>
+<p>Aesthetics (or Esthetics) is the part of Philosophy that studies the nature of Art, Beauty, and Taste.</p>
+<hr>
+<h2>What is Art?</h2>
+<ul>
+<li>What makes Art good?</li>
+<li>What makes Art bad?</li>
+<li>What is a work of Art?</li>
+<li>What is the purpose of Art?.</li>
+</ul>
+<hr>
+<h2>What is Beauty?</h2>
+<p>What makes a woman beautiful?</p>
+<p>Qualities that pleases the aesthetic senses, especially the sight:</p>
+<ul>
+<li>Attractive</li>
+<li>Beautiful</li>
+<li>Cute</li>
+<li>Gorgeous</li>
+<li>Handsome</li>
+<li>Lovely</li>
+<li>Pretty</li>
+</ul>
+<hr>
+<h2>What is Taste?</h2>
+<p>Philosophy tries to explore all the ways taste can be defined.</p>
+<p>Taste can be objective:</p>
+<ul>
+<li>Sweet</li>
+<li>Salt</li>
+<li>Sour</li>
+<li>Bitter</li>
+<li>Savory</li>
+</ul>
+<p>Taste can be subjective:
+<ul>
+<li>"What a beatiful island"</li>
+<li>"I like tall women"</li>
+<li>"I love classic music"</li>
+<li>"The beauty of poetry.</li>
+</ul>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+
+<p>
+All possible server variables:
+</p>
+ALL_HTTP<br>ALL_RAW<br>APPL_MD_PATH<br>APPL_PHYSICAL_PATH<br>AUTH_PASSWORD<br>AUTH_TYPE<br>AUTH_USER<br>CERT_COOKIE<br>CERT_FLAGS<br>CERT_ISSUER<br>CERT_KEYSIZE<br>CERT_SECRETKEYSIZE<br>CERT_SERIALNUMBER<br>CERT_SERVER_ISSUER<br>CERT_SERVER_SUBJECT<br>CERT_SUBJECT<br>CONTENT_LENGTH<br>CONTENT_TYPE<br>GATEWAY_INTERFACE<br>HTTPS<br>HTTPS_KEYSIZE<br>HTTPS_SECRETKEYSIZE<br>HTTPS_SERVER_ISSUER<br>HTTPS_SERVER_SUBJECT<br>INSTANCE_ID<br>INSTANCE_META_PATH<br>LOCAL_ADDR<br>LOGON_USER<br>PATH_INFO<br>PATH_TRANSLATED<br>QUERY_STRING<br>REMOTE_ADDR<br>REMOTE_HOST<br>REMOTE_USER<br>REQUEST_METHOD<br>SCRIPT_NAME<br>SERVER_NAME<br>SERVER_PORT<br>SERVER_PORT_SECURE<br>SERVER_PROTOCOL<br>SERVER_SOFTWARE<br>URL<br>HTTP_CACHE_CONTROL<br>HTTP_VIA<br>HTTP_ACCEPT<br>HTTP_ACCEPT_ENCODING<br>HTTP_COOKIE<br>HTTP_HOST<br>HTTP_USER_AGENT<br>HTTP_X_FORWARDED_FOR<br>HTTP_X_FORWARDED_PROTO<br>HTTP_X_FORWARDED_PORT<br>HTTP_X_AMZN_TRACE_ID<br>HTTP_REQUEST_ID<br>HTTP_TRACEPARENT<br>HTTP_CORRELATION_CONTEXT<br>HTTP_TRUE_CLIENT_IP<br>HTTP_CDN_LOOP<br>HTTP_X_AKAMAI_CONFIG_LOG_DETAIL<br>HTTP_AKAMAI_ORIGIN_HOP<br>
+
+</body>
+</html>

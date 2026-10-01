@@ -1,0 +1,117 @@
+<html>
+<body>
+<script>/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<h2>My CD Collection</h2>
+<table border="1">
+<tr bgcolor="#9acd32">
+<th style="text-align:left">Title</th>
+<th style="text-align:left">Artist</th>
+</tr>
+<tr>
+<td>Empire Burlesque</td>
+<td>Bob Dylan</td>
+</tr>
+<tr>
+<td>Hide your heart</td>
+<td>Bonnie Tyler</td>
+</tr>
+<tr>
+<td>Greatest Hits</td>
+<td>Dolly Parton</td>
+</tr>
+<tr>
+<td>Still got the blues</td>
+<td>Gary Moore</td>
+</tr>
+<tr>
+<td>Eros</td>
+<td>Eros Ramazzotti</td>
+</tr>
+<tr>
+<td>One night only</td>
+<td>Bee Gees</td>
+</tr>
+<tr>
+<td>Sylvias Mother</td>
+<td>Dr.Hook</td>
+</tr>
+<tr>
+<td>Maggie May</td>
+<td>Rod Stewart</td>
+</tr>
+<tr>
+<td>Romanza</td>
+<td>Andrea Bocelli</td>
+</tr>
+<tr>
+<td>When a man loves a woman</td>
+<td>Percy Sledge</td>
+</tr>
+<tr>
+<td>Black angel</td>
+<td>Savage Rose</td>
+</tr>
+<tr>
+<td>1999 Grammy Nominees</td>
+<td>Many</td>
+</tr>
+<tr>
+<td>For the good times</td>
+<td>Kenny Rogers</td>
+</tr>
+<tr>
+<td>Big Willie style</td>
+<td>Will Smith</td>
+</tr>
+<tr>
+<td>Tupelo Honey</td>
+<td>Van Morrison</td>
+</tr>
+<tr>
+<td>Soulsville</td>
+<td>Jorn Hoel</td>
+</tr>
+<tr>
+<td>The very best of</td>
+<td>Cat Stevens</td>
+</tr>
+<tr>
+<td>Stop</td>
+<td>Sam Brown</td>
+</tr>
+<tr>
+<td>Bridge of Spies</td>
+<td>T`Pau</td>
+</tr>
+<tr>
+<td>Private Dancer</td>
+<td>Tina Turner</td>
+</tr>
+<tr>
+<td>Midt om natten</td>
+<td>Kim Larsen</td>
+</tr>
+<tr>
+<td>Pavarotti Gala Concert</td>
+<td>Luciano Pavarotti</td>
+</tr>
+<tr>
+<td>The dock of the bay</td>
+<td>Otis Redding</td>
+</tr>
+<tr>
+<td>Picture book</td>
+<td>Simply Red</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>The Communards</td>
+</tr>
+<tr>
+<td>Unchain my heart</td>
+<td>Joe Cocker</td>
+</tr>
+</table>
+</body>
+</html>

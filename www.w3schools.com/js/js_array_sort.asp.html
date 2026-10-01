@@ -1,0 +1,810 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<script>
+</div>
+<p>
+<a class="w3-btn" href="tryit.asp?filename=tryjs_array_sort.html_random" target="_blank">Try it Yourself &raquo;</a>
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Fisher Yates Method</h2>
+<p>The points.sort() method in the example above is not accurate. It will favor some 
+numbers over others.</p>
+<p>The most popular correct method, is called the Fisher Yates shuffle, and was 
+introduced in data science as early as 1938!</p>
+<p>In JavaScript the method can be translated to this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const points = [40, 100, 1, 5, 25, 10];<br><br>
+for (let i = points.length -1; i &gt; 0; i--) {<br>
+&nbsp; let j = Math.floor(Math.random() * (i+1));<br>
+&nbsp; let k = points[i];<br>&nbsp; 
+  points[i] = points[j];<br>
+&nbsp; points[j] = k;<br>}
+</div>
+<p>
+<a class="w3-btn" href="tryit.asp?filename=tryjs_array_sort.html_random2" target="_blank">Try it Yourself &raquo;</a>
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Find the Lowest (or Highest) Array Value</h2>
+<p>There are no built-in functions for finding the max or min 
+value in an array.</p>
+<p>To find the lowest or highest value you have 3 options:</p>
+<ul>
+<li>Sort the array and read the first or last element</li>
+<li>Use Math.min() or Math.max()</li>
+<li>Write a home made function</li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Find Min or Max with sort()</h2>
+<p>After you have sorted an array, you can use the 
+index to obtain the highest and lowest values.</p>
+<h4>Sort Ascending:</h4>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const points = [40, 100, 1, 5, 25, 10];<br>
+points.sort(function(a, b){return a - b});<br>
+// now points[0] contains the lowest value<br>
+// and points[points.length-1] contains the highest value</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_array_sort.html_low" target="_blank">Try it Yourself &raquo;</a>
+</div>
+<h4>Sort Descending:</h4>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const points = [40, 100, 1, 5, 25, 10];<br>
+points.sort(function(a, b){return b - a});<br>
+// now points[0] contains the highest value<br>
+// and points[points.length-1] contains the lowest value</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_array_sort.html_high" target="_blank">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>Sorting a whole array is a very inefficient method if you only want to find the highest (or lowest) value.</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_mathmin"></a>
+<h2>Using Math.min() on an Array</h2>
+<p>You can use <code class="w3-codespan">Math.min.apply</code> to find the lowest number in an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+function myArrayMin(arr) {<br>
+&nbsp;&nbsp;return Math.min.apply(null, arr);<br>}
+</div>
+<p>
+<a class="w3-btn" href="tryit.asp?filename=tryjs_array_sort_math_min.html" target="_blank">Try it Yourself &raquo;</a>
+</p>
+</div>
+<p><code class="w3-codespan">Math.min.apply(null, [1, 2, 3])</code> is equivalent to <code class="w3-codespan">Math.min(1, 2, 3)</code>.</p>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_mathmax"></a>
+<h2>Using Math.max() on an Array</h2>
+<p>You can use <code class="w3-codespan">Math.max.apply</code> to find the highest number in an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+function myArrayMax(arr) {<br>
+  &nbsp; return Math.max.apply(null, arr);<br>}
+</div>
+<p>
+<a class="w3-btn" href="tryit.asp?filename=tryjs_array_sort_math_max.html" target="_blank">Try it Yourself &raquo;</a>
+</p>
+</div>
+<p><code class="w3-codespan">Math.max.apply(null, [1, 2, 3])</code> is equivalent to <code class="w3-codespan">Math.max(1, 2, 3)</code>.</p>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_homemin"></a>
+<h2>JavaScript Array Minimum Method</h2>
+<p>There is no built-in function for finding the lowest value in a JavaScript array.</p>
+<p>The fastest code to find the lowest number is to use a <b>home made</b> method.</p>
+<p>This function loops through an array comparing each value with the lowest value found:</p>
+<div class="w3-example">
+<h3>Example (Find Min)</h3>
+<div class="w3-code notranslate jsHigh">
+  function myArrayMin(arr) {<br>&nbsp;&nbsp;let len = arr.length;<br>&nbsp;&nbsp;let min = Infinity;<br>&nbsp;&nbsp;while (len--) {<br>&nbsp;&nbsp;&nbsp; 
+  if (arr[len] &lt; min) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  min = arr[len];<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return min;<br>}</div>
+<p>
+<a class="w3-btn" href="tryit.asp?filename=tryjs_array_sort_min.html" target="_blank">Try it Yourself &raquo;</a>
+</p>
+</div>
+<h2>JavaScript Array Maximum Method</h2>
+<p>There is no built-in function for finding the highest value in a JavaScript array.</p>
+<p>The fastest code to find the highest number is to use a <b>home made</b> method.</p>
+<p>This function loops through an array comparing each value with the highest value found:</p>
+<div class="w3-example">
+<h3>Example (Find Max)</h3>
+<div class="w3-code notranslate jsHigh">
+function myArrayMax(arr) {<br>
+&nbsp;&nbsp;let len = arr.length;<br>
+&nbsp;&nbsp;let max = -Infinity;<br>
+&nbsp;&nbsp;while (len--) {<br>
+    &nbsp;&nbsp;&nbsp; 
+  if (arr[len] &gt; max) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  max = arr[len];<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp; return max;<br>}</div>
+<p>
+<a class="w3-btn" href="tryit.asp?filename=tryjs_array_sort_max.html" target="_blank">Try it Yourself &raquo;</a>
+</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_objects"></a>
+<h2>Sorting Object Arrays</h2>
+<p>JavaScript arrays often contain objects:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const cars = [<br>
+ &nbsp;
+ {type:&quot;Volvo&quot;, year:2016},<br>
+ &nbsp;
+ {type:&quot;Saab&quot;, year:2001},<br>
+ &nbsp;
+ {type:&quot;BMW&quot;, year:2010}<br>];</div>
+</div>
+<p>Even if objects have properties of different data types, the <code class="w3-codespan">sort()</code> method 
+can be used to sort the array. </p>
+<p>The solution is to write a compare function to compare the property values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ cars.sort(function(a, b){return a.year - b.year});</div>
+ <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_array_sort.html_object1" target="_blank">Try it Yourself &raquo;</a>
+</div>
+<p>Comparing string properties is a little more complex:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+cars.sort(function(a, b){<br>
+&nbsp;&nbsp;let x = a.type.toLowerCase();<br>
+&nbsp;&nbsp;let y = b.type.toLowerCase();<br>
+  &nbsp; if (x &lt; y) {return -1;}<br>&nbsp; 
+ if (x &gt; y) {return 1;}<br>&nbsp; return 0;<br>});</div>
+ <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_array_sort.html_object2" target="_blank">Try it Yourself &raquo;</a>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Stable Array sort()</h2>
+<p><a href="js_2019.asp.html">ES2019</a> <b>revised</b> the Array <code class="w3-codespan">sort()</code> method.</p>
+<p>Before 2019, the specification allowed unstable sorting algorithms such as QuickSort.</p>
+<p>After ES2019, browsers must use a stable sorting algorithm:</p>
+<p>When sorting elements on a value, the elements must keep their relative position to other elements with the same value.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const myArr = [<br>
+&nbsp; {name:"X00",price:100 },<br>
+&nbsp; {name:"X01",price:100 },<br>
+&nbsp; {name:"X02",price:100 },<br>
+&nbsp; {name:"X03",price:100 },<br>
+&nbsp; {name:"X04",price:110 },<br>
+&nbsp; {name:"X05",price:110 },<br>
+&nbsp; {name:"X06",price:110 },<br>
+&nbsp; {name:"X07",price:110 }<br>
+];
+</div>
+<a target="_blank" href="tryit.asp?filename=tryjs_array_stable_sort.html" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<p>In the example above, when sorting on price, the result is not allowed to come out with the names
+in an other relative position like this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+X01 100<br>
+X03 100<br>
+X00 100<br>
+X03 100<br>
+X05 110<br>
+X04 110<br>
+X06 110<br>
+X07 110<br>
+</div>
+</div>
+
+<!--stop-->
+<div class="ws-note">
+<h2>Complete Array Reference</h2>
+<p>For a complete Array reference, go to our:</p>
+<p><a href="../jsref/jsref_obj_array.asp.html">Complete JavaScript Array Reference</a>.</p>
+<p>The reference contains descriptions and examples of all Array 
+properties and methods.</p>
+</div>
+
+
+<hr>
+<div id="exercisecontainer" src="xrcise_array_sort.js"></div>
+<hr>
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_array_search.asp.html">&#10094; Previous</a>
+<a class="w3-right w3-btn" href="js_array_iteration.asp.html">Next &#10095;</a>
+</div>
+<div
+  id="user-profile-bottom-wrapper"
+  class="user-profile-bottom-wrapper"
+>
+  <div class="user-authenticated w3-hide">
+    <a
+      href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com"
+      class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile"
+      title="Your W3Schools Profile"
+      aria-label="Your W3Schools Profile"
+      target="_top"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        viewBox="0 0 2048 2048"
+        class="user-profile-icon"
+        aria-label="Your W3Schools Profile Icon"
+      >
+        <path
+          d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155"
+          stroke="none"
+          fill="#2a93fb"
+          fill-rule="evenodd"
+        />
+        <path
+          d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584"
+          stroke="none"
+          fill="#0aaa8a"
+          fill-rule="evenodd"
+        />
+      </svg>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="user-progress"
+        aria-label="Your W3Schools Profile Progress"
+      >
+        <path
+          class="user-progress-circle1"
+          fill="none"
+          d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"
+        ></path>
+        <path
+          class="user-progress-circle2"
+          fill="none"
+          d="M 26 15 A 20 20 0 0 0 26 15"
+        ></path>
+      </svg>
+
+      <span class="user-progress-star">&#x2605;</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="-background-image -variant-t2">&nbsp;</div>
+
+  <div class="-inner-wrapper">
+    <div class="-main-section">
+      <div class="-inner-wrapper">
+        <div class="-headline">Track your progress - it's free!</div>
+        <div class="-body">
+          <div class="-progress-bar">
+            <div class="-slider" style="width: 20%;">&nbsp;</div>    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="-right-side-section">
+      <div class="-user-session-btns">
+        <a
+          href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com"
+          class="-login-btn w3-btn bar-item-hover w3-right ws-light-green ga-bottom ga-bottom-login"
+          title="Login to your account"
+          aria-label="Login to your account"
+          target="_top"
+        >
+          Log in
+        </a>
+
+        <a
+          href="https://profile.w3schools.com/sign-up?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com"
+          class="-signup-btn w3-button w3-right ws-green ws-hover-green ga-bottom ga-bottom-signup"
+          title="Sign Up to Improve Your Learning Experience"
+          aria-label="Sign Up to Improve Your Learning Experience"
+          target="_top"
+        >
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<div class="w3-col l2 m12" id="right">
+
+<div class="sidesection">
+  <div id="skyscraper">
+  </div>
+</div>
+  
+<style>
+.ribbon-vid {
+  font-size:12px;
+  font-weight:bold;
+  padding: 6px 20px;
+  left:-20px;
+  top:-10px;
+  text-align: center;
+  color:black;
+  border-radius:25px;
+}
+</style>
+<div class="sidesection" style="margin-top:20px;margin-bottom:20px;">
+<a id="upperfeatureshowcaselink" class="ga-right ga-top-fa-25" href="https://campus.w3schools.com/products/w3schools-full-access-course" target="_blank">
+<picture id="upperfeatureshowcase">
+  <source id="upperfeatureshowcase3001" srcset="../images/img_fa_up_300.webp" media="(max-width: 990px)" style="border-radius: 5px;">
+  <source id="upperfeatureshowcase120" srcset="../images/img_fa_up_120.webp" media="(max-width: 1260px)" style="border-radius: 5px;">
+  <source id="upperfeatureshowcase160" srcset="../images/img_fa_up_160.webp" media="(max-width: 1700px)" style="border-radius: 5px;">
+  <img id="upperfeatureshowcase300" src="../images/img_fa_up_300.png" alt="Get Certified" style="width:auto;border-radius: 5px;" loading="lazy">
+</picture>
+</a>
+</div>
+
+<div class="sidesection">
+<h4><a href="../colors/colors_picker.asp.html">COLOR PICKER</a></h4>
+<a href="../colors/colors_picker.asp.html" class="ga-right">
+<picture>
+  <source srcset="../images/colorpicker2000.webp" type="image/webp">
+  <img src="../images/colorpicker2000.png" alt="colorpicker" loading="lazy">
+</picture>
+</a>
+</div>
+
+<div class="sidesection">
+  <div class="sharethis">
+    <a href="https://www.youtube.com/@w3schools" target="_blank" title="W3Schools on YouTube"><span class="fa fa-youtube ga-right w3-hover-text-red" style="font-size:25px;"></span></a>
+    <a href="https://www.linkedin.com/company/w3schools.com/" target="_blank" title="W3Schools on LinkedIn"><span class="fa fa-linkedin-square ga-right" style="font-size:25px;"></span></a>
+    <a href="https://discord.com/invite/w3schools" target="_blank" title='Join the W3schools community on Discord'><span class="fa fa-discord ga-right" style="font-size:25px;"></span></a> 
+    <a href="https://www.facebook.com/w3schoolscom/" target="_blank" title="W3Schools on Facebook"><span class="fa fa-facebook-square ga-right" style="font-size:25px;"></span></a>
+    <a href="https://www.instagram.com/w3schools.com_official/" target="_blank" title="W3Schools on Instagram"><span class="fa fa-instagram ga-right" style="font-size:25px;"></span></a>
+    <a href="https://www.tiktok.com/@w3schools.com" target="_blank" title="New: W3Schools on TikTok"><span class="fa fa-tiktok ga-right w3-hover-text-grey" style="font-size:20px;"></span></a>
+  </div>
+</div>
+
+
+<div id="vidpos" class="sidesection" style="text-align:center;margin-bottom:0;height:0;">
+</div>
+
+
+<div id="stickypos" class="sidesection" style="text-align:center;position:sticky;top:50px;">
+  <div id="stickyadcontainer">
+    <div style="position:relative;margin:auto;">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div id="footer" class="footer w3-container w3-white">
+<hr>
+<div id="bottomads" style="overflow:auto">
+</div>
+<!--<hr>-->
+
+</div>
+
+</div>
+</div>
+</div>
+<div id="wrappercontainer">
+<style>
+#wrappercontainer {
+  width:100%;
+  height:100px;
+  background-color:red;
+  position:relative;
+  z-index:2;
+}
+#footerwrapper {
+  background-color: #282A35;
+/*  background-image:url('/images/background_in_space.webp');
+  background-repeat: repeat;
+  background-position: right bottom;*/
+}
+#spacemyfooter {
+  padding:40px 80px 20px 80px;
+  max-width:1500px;
+  margin:auto;
+}
+.footerlinks_1 {
+  width:auto;
+  float:left;
+  padding:40px 60px;
+  color:#FFF4A3;
+  font-family: Source Sans Pro, sans-serif;
+}
+.footerlinks_1 .fa-logo {
+  font-size:46px!important;
+  color:#ddd;
+}
+.footerlinks_1:nth-child(1) {
+  padding:30px 10px 30px 40px;
+}
+.footerlinks_1 a{
+  text-decoration:none;
+}
+.footerlinks_1 a:hover,.footerlinks_1 a:active{
+  text-decoration:underline;
+  color:#FFF4A3;
+}
+.footerlinks_1 a:hover,.footerlinks_1 a:active{
+  text-decoration:underline;
+  color:#FFF4A3!;
+}
+.footerlinks_1 a:hover i{
+  color:#FFF4A3!important;
+}
+.footerlinks_2 {
+  width:auto;
+  float:left;
+  padding-left:90px;
+  padding-right:135px;
+  color:#ddd;
+  font-family: Source Sans Pro, sans-serif;
+  font-size:12px;
+  line-height:15px;
+  text-align:center;
+}
+.footerlinks_2:nth-child(4) {
+  padding-right:0;
+}
+.footerlinks_2 h5 {
+  margin-bottom:20px;
+}
+.footerlinks_2 a:visited,.footerlinks_2 a:link{
+  text-decoration:none;
+}
+.footerlinks_2 a:hover,.footerlinks_2 a:active{
+  color:#FFF4A3;
+}
+.footersome {
+  padding:60px 40px 10px 40px;
+  color:#ddd;
+  font-size:20px;
+  text-align:center;
+}
+.footersome a {
+  margin-right:10px;
+}
+.footersome a:hover,.footersome a:active{
+  color:#FFF4A3;
+}
+.footersome .textlink {
+  font-size:15px;
+  text-decoration:none;
+}
+.footersome .textlink:active,.footersome .textlink:hover {
+  text-decoration:underline;
+}
+.footertext {
+  color:#ddd;
+  font-size:12px;
+  line-height:15px;
+  text-align:center;
+}
+.footertext a:hover,.footertext a:active{
+  color:#FFF4A3;
+}
+@media screen and (max-width: 992px) {
+  #wrappercontainer {
+    z-index:0;
+  }
+  .footerlinks_1 {
+    width:100%;
+    margin:auto;
+    float:none;
+    text-align:center;
+    padding:10px 20px!important;
+    font-size:20px;
+  }
+  .footerlinks_1:nth-child(1) {
+    padding:40px 20px;
+  }
+  .footerlinks_2 {
+    width:100%;
+    float:none;
+    margin:auto;
+    font-size:16px;
+    line-height:20px;
+    padding:0;
+  }
+  .footerlinks_2 h5 {
+    font-size:26px;
+    margin-top:40px;
+  }
+  .footertext {
+    padding:0;
+  }
+  .footer-hide-special {
+    display:none;
+  }
+}
+/*
+@media screen and (max-width: 992px) {
+  #footerwrapper {
+    background-image:url('/images/background_in_space.webp');
+    background-color: #282A35;
+    background-repeat: repeat;
+    background-position: left top;
+  }
+}*/
+</style>
+<div id="footerwrapper">
+
+<style>
+@media screen and (max-width: 1450px) {
+  #spacemyfooter {
+    max-width:1100px;
+  }
+  .footerlinks_1 {
+    padding-left:30px;
+    padding-right:30px;
+  }
+  .footerlinks_2 {
+    padding-right:30px;
+  }
+  .footerlinks_2:nth-child(1) {
+    padding-left:50px;
+  }
+  .footer-hide-special {
+    display:none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  #spacemyfooter {
+    max-width:1000px;
+  }
+  .footerlinks_1 {
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .footerlinks_2 {
+    padding-right:20px;
+  }
+  .footerlinks_2:nth-child(1) {
+    padding-left:20px;
+  }
+}
+</style>
+<div id="spacemyfooter">
+
+
+
+
+<div style="overflow:hidden;">
+<div class="footerlinks_1">
+  <a href="../index.html" class="ga-bottom" aria-label="W3Schools.com" alt="W3Schools.com">
+    <i class="fa fa-logo"></i>
+  </a>
+</div>
+<div class="footerlinks_1"><a href="../plus/index.php.html" title="Become a PLUS user and unlock powerful features" class="ga-bottom ga-bottom-plus">PLUS</a></div>
+<div class="footerlinks_1"><a href="../spaces/index.php.html" title="Get your own website with W3Schools Spaces" class="ga-bottom ga-bottom-spaces">SPACES</a></div>
+<div class="footerlinks_1"><a href="https://campus.w3schools.com/collections/certifications" title="Document your knowledge by getting certified" target="_blank" class="ga-bottom ga-bottom-cert">GET CERTIFIED</a></div>
+<div class="footerlinks_1"><a href="../academy/index.php.html" title="Contact us about W3Schools Academy for educational institutions" target="_blank" class="ga-bottom ga-bottom-teachers">FOR TEACHERS</a></div>
+<div class="footerlinks_1"><a href="../academy/index.php.html" target="_blank">FOR BUSINESS</a></div>
+<div class="footerlinks_1"><a href="javascript:void(0);" title="Contact us about sales or errors" onclick="reportError();return false">CONTACT US</a></div>
+</div>
+<style>
+/*Remove this style after 20. April 2024*/
+#err_message {
+  padding:8px 16px 16px 40px;
+  border-radius:5px;
+  display:none;
+  position:relative;
+  background-color:#2D3748;
+  color:#FFF4A3;
+  font-family:'Source Sans Pro', sans-serif;
+}
+#err_message h2 {
+  font-family:'Source Sans Pro', sans-serif;
+}
+#err_message p {
+  color:#f1f1f1;
+}
+#err_message #close_err_message {
+  position:absolute;
+  right:0;
+  top:0;
+  font-size:20px;
+  cursor:pointer;
+  width:30px;
+  height:30px;
+  text-align:center;
+}
+#err_message #close_err_message:hover {
+  background-color:#FFF4A3;
+  color:#2D3748;
+  border-radius:50%
+}
+</style>
+
+<div id="err_message">
+  <span id="close_err_message" onclick="this.parentElement.style.display='none'">&times;</span>
+  <h2>Contact Sales</h2>
+  <p>If you want to use W3Schools services as an educational institution, team or enterprise, send us an e-mail:<br>sales@w3schools.com</p>
+  <h2>Report Error</h2>
+  <p>If you want to report an error, or if you want to make a suggestion, send us an e-mail:<br>help@w3schools.com</p>
+</div>
+
+
+<div style="overflow:hidden;">
+<div class="footerlinks_2">
+  <h5 style="font-family: 'Source Sans Pro', sans-serif;">Top Tutorials</h5>
+  <a href="../html/default.asp.html" class="ga-bottom">HTML Tutorial</a><br>
+  <a href="../css/default.asp.html" class="ga-bottom">CSS Tutorial</a><br>
+  <a href="default.asp.html" class="ga-bottom">JavaScript Tutorial</a><br>
+  <a href="../howto/default.asp.html" class="ga-bottom">How To Tutorial</a><br>
+  <a href="../sql/default.asp.html" class="ga-bottom">SQL Tutorial</a><br>
+  <a href="../python/default.asp.html" class="ga-bottom">Python Tutorial</a><br>
+  <a href="../w3css/default.asp.html" class="ga-bottom">W3.CSS Tutorial</a><br>
+  <a href="../bootstrap/bootstrap_ver.asp.html" class="ga-bottom">Bootstrap Tutorial</a><br>
+  <a href="../php/default.asp.html" class="ga-bottom">PHP Tutorial</a><br>
+  <a href="../java/default.asp.html" class="ga-bottom">Java Tutorial</a><br>
+  <a href="../cpp/default.asp.html" class="ga-bottom">C++ Tutorial</a><br>
+  <a href="../jquery/default.asp.html" class="ga-bottom">jQuery Tutorial</a><br>
+</div>
+<div class="footerlinks_2">
+  <h5 style="font-family: 'Source Sans Pro', sans-serif;">Top References</h5>
+  <a href="../tags/default.asp.html" class="ga-bottom">HTML Reference</a><br>
+  <a href="../cssref/index.php.html" class="ga-bottom">CSS Reference</a><br>
+  <a href="../jsref/default.asp.html" class="ga-bottom">JavaScript Reference</a><br>
+  <a href="../sql/sql_ref_keywords.asp.html" class="ga-bottom">SQL Reference</a><br>
+  <a href="../python/python_reference.asp.html" class="ga-bottom">Python Reference</a><br>
+  <a href="../w3css/w3css_references.asp.html" class="ga-bottom">W3.CSS Reference</a><br>
+  <a href="../bootstrap/bootstrap_ref_all_classes.asp.html" class="ga-bottom">Bootstrap Reference</a><br>
+  <a href="../php/php_ref_overview.asp.html" class="ga-bottom">PHP Reference</a><br>
+  <a href="../colors/colors_names.asp.html" class="ga-bottom">HTML Colors</a><br>
+  <a href="../java/java_ref_keywords.asp.html" class="ga-bottom">Java Reference</a><br>
+  <a href="../angular/angular_ref_directives.asp.html" class="ga-bottom">Angular Reference</a><br>
+  <a href="../jquery/jquery_ref_overview.asp.html" class="ga-bottom">jQuery Reference</a><br>
+</div>
+<div class="footerlinks_2">
+  <h5 style="font-family: 'Source Sans Pro', sans-serif;">Top Examples</h5>
+  <a href="../html/html_examples.asp.html" class="ga-bottom">HTML Examples</a><br>
+  <a href="../css/css_examples.asp.html" class="ga-bottom">CSS Examples</a><br>
+  <a href="js_examples.asp.html" class="ga-bottom">JavaScript Examples</a><br>
+  <a href="../howto/default.asp.html" class="ga-bottom">How To Examples</a><br>
+  <a href="../sql/sql_examples.asp.html" class="ga-bottom">SQL Examples</a><br>
+  <a href="../python/python_examples.asp.html" class="ga-bottom">Python Examples</a><br>
+  <a href="../w3css/w3css_examples.asp.html" class="ga-bottom">W3.CSS Examples</a><br>
+  <a href="../bootstrap/bootstrap_examples.asp.html" class="ga-bottom">Bootstrap Examples</a><br>
+  <a href="../php/php_examples.asp.html" class="ga-bottom">PHP Examples</a><br>
+  <a href="../java/java_examples.asp.html" class="ga-bottom">Java Examples</a><br>
+  <a href="../xml/xml_examples.asp.html" class="ga-bottom">XML Examples</a><br>
+  <a href="../jquery/jquery_examples.asp.html" class="ga-bottom">jQuery Examples</a><br>
+</div>
+<div class="footerlinks_2">
+  <a href="https://campus.w3schools.com/collections/course-catalog" target="_blank" class="ga-bottom"><h5 style="font-family: 'Source Sans Pro', sans-serif;">Get Certified</h5></a>
+  <a href="https://campus.w3schools.com/collections/certifications/products/html-certificate" target="_blank" class="ga-bottom">HTML Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/css-certificate" target="_blank" class="ga-bottom">CSS Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/javascript-certificate" target="_blank" class="ga-bottom">JavaScript Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/front-end-certificate" target="_blank" class="ga-bottom">Front End Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/sql-certificate" target="_blank" class="ga-bottom">SQL Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/python-certificate" target="_blank" class="ga-bottom">Python Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/php-certificate" target="_blank" class="ga-bottom">PHP Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/jquery-certificate" target="_blank" class="ga-bottom">jQuery Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/java-certificate" target="_blank" class="ga-bottom">Java Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/c-certificate" target="_blank" class="ga-bottom">C++ Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/c-certificate-1" target="_blank" class="ga-bottom">C# Certificate</a><br>
+  <a href="https://campus.w3schools.com/collections/certifications/products/xml-certificate" target="_blank" class="ga-bottom">XML Certificate</a><br>
+</div>
+</div>
+
+
+<div class="footersome">
+  <a target="_blank" href="https://www.youtube.com/@w3schools" title="W3Schools on YouTube"><i class="fa fa-youtube"></i></a>
+  <a target="_blank" href="https://www.linkedin.com/company/w3schools.com/" title="W3Schools on LinkedIn"><i class="fa">&#62220;</i></a>
+  <a target="_blank" href="https://discord.com/invite/w3schools" title="Join the W3schools community on Discord"><i class="fa">&#59399;</i></a>
+  <a target="_blank" href="https://www.facebook.com/w3schoolscom/" title="W3Schools on Facebook"><i class="fa">&#59398;</i></a>
+  <a target="_blank" href="https://www.instagram.com/w3schools.com_official/" title="W3Schools on Instagram"><i class="fa">&#61805;</i></a>
+  <div class="w3-hide-large" style="margin-top:16px"></div>
+  <a target="_blank" href="http://www.w3schools.com/forum/default.asp" title="Forum" class="textlink">FORUM</a>
+  <a target="_blank" href="../about/default.asp.html" title="About W3Schools" class="textlink">ABOUT</a>
+  <a target="_blank" href="../academy/index.php.html"
+     title="Contact us about W3Schools Academy for educational institutions and organizations" class="textlink ga-bottom-textlink-academy">ACADEMY</a>
+</div>
+
+<div class="footertext">
+W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning.<br class="footer-hide-special">
+Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness<br class="footer-hide-special">
+of all content. While using W3Schools, you agree to have read and accepted our <a href="../about/about_copyright.asp.html" class="ga-bottom">terms of use</a>, 
+<a href="../about/about_privacy.asp.html" class="ga-bottom">cookie and privacy policy</a>.<br><br>
+<a href="../about/about_copyright.asp.html" class="ga-bottom">Copyright 1999-2025</a> by Refsnes Data. All Rights Reserved.
+<a href="../w3css/default.asp.html" class="ga-bottom">W3Schools is Powered by W3.CSS</a>.<br><br>
+</div>
+</div>
+</div>
+
+
+</div>
+<script src="../lib/topnav/amazon-cognito-identity.min.js"></script>
+<script src="../lib/topnav/main.js"></script>
+<script src="../lib/w3schools_footer.js"></script>
+<script src="../lib/w3schools_features.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
+
+<script>
+  MyLearning.loadUser('footer', function () {
+    // if (!UserSession.loggedIn) {
+    //  addMyLearnButt();
+    // }
+  });
+  function docReady(fn) {
+    document.addEventListener("DOMContentLoaded", fn);
+    if (document.readyState === "interactive" || document.readyState === "complete" ) {
+      fn();
+    }
+  }
+  uic_prov_al();
+
+const upperfeatureshowcaselink = document.getElementById("upperfeatureshowcaselink");
+if (upperfeatureshowcaselink) {
+ displayInternalFeatures();
+}
+/*
+function addMyLearnButt() {
+  let nav = document.getElementsByClassName("nextprev");
+  if (document.body.contains(nav[1])) {
+    if ((nav[1].firstElementChild.innerHTML.indexOf("Previous") || nav[1].firstElementChild.innerHTML.indexOf("Home") !== -1) && (nav[1].firstElementChild.nextElementSibling.innerHTML.indexOf("Next") !== -1)) {
+      let myLearnButt = document.createElement("a");
+      myLearnButt.innerHTML="Log in to track progress";
+      myLearnButt.classList.add("w3-btn", "w3-hide-small", "myl-nav-butt");
+      myLearnButt.href="../signup?utm_source=classic&utm_medium=" + subjectFolder + "_tutorial&utm_campaign=button_lower_navigation";
+      myLearnButt.setAttribute("title", "Sign Up and improve Your Learning Experience");
+      myLearnButt.setAttribute("target", "_blank");
+      nav[1].classList.add("w3-center");
+      nav[1].firstElementChild.insertAdjacentElement("afterend", myLearnButt);
+    }
+  }
+}
+*/
+</script>
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</body>
+</html>

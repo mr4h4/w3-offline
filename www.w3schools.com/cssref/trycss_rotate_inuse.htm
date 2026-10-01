@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>/* offline-shim: evita ReferenceError si un JS local no carga (file://, adblock) */
+window.uic_prov_pre=window.uic_prov_pre||function(){};
+window.uic_prov_al=window.uic_prov_al||function(){};
+window.displayInternalFeatures=window.displayInternalFeatures||function(){};
+window.MyLearning=window.MyLearning||{loadUser:function(a,b){if(typeof b==="function"){try{b()}catch(e){}}},getUrlFriendlyName:function(u){return (u||"").toLowerCase().replace(/[^a-z0-9]+/g,"-")}};
+window.UserSession=window.UserSession||{loggedIn:false};
+/* cage-fallback-v2: toda <img> que falle muestra nicocage.png */
+(function(){var DONE="data-cage-fallback";function rootPrefix(){var els=document.querySelectorAll("script[src],link[href]");for(var i=0;i<els.length;i++){var u=els[i].getAttribute("src")||els[i].getAttribute("href")||"";var k=u.indexOf("lib/");if(k>=0)return u.slice(0,k);}return "";}var FB=null;function target(){if(FB===null)FB=rootPrefix()+"nicocage.png";return FB;}function fix(g){if(!g||g.tagName!=="IMG"||g.getAttribute(DONE))return;g.setAttribute(DONE,"1");try{g.removeAttribute("srcset");}catch(x){}g.src=target();}function sweep(){var im=document.images;for(var i=0;i<im.length;i++){var g=im[i];if(g.complete&&g.naturalWidth===0)fix(g);}}document.addEventListener("error",function(e){fix(e.target);},true);sweep();document.addEventListener("DOMContentLoaded",sweep);})();</script>
+<style>
+#div1
+{
+position: relative;
+height: 150px;
+width: 200px;
+margin: 30px;
+padding:30px;
+border: 1px solid black;
+}
+
+#div2
+{
+padding:50px;
+position: absolute;
+border: 1px solid black;
+background-color: red;
+rotate: z 0deg;
+}
+</style>
+<script>
+
+function changeRot()
+{
+  let axis = document.querySelector('input[name="rBtn-axis"]:checked').value;
+  let angle = document.getElementById('inpAngle').value;
+  document.getElementById('div2').style.rotate = axis + ' ' + angle +'deg';
+  document.getElementById('pRotate').innerHTML = 'rotate: ' + axis + ' ' + angle +'deg;';     
+}
+</script>
+</head>
+
+<body>
+
+<p>Rotate the red div element, try changing its axis and angle value.</p>
+
+<div id="div1">
+  <div id="div2">HELLO</div>
+</div>
+
+<p>Rotate</p>
+<p>
+  Angle:<br><input type="range" min="-180" max="180" value="0" step="1" oninput="changeRot()" id="inpAngle" />
+</p>
+<p>Select axis:</p>
+<input type="radio" name="rBtn-axis" id="x" value="x" oninput="changeRot()"><label for="x">x</label> <br>
+<input type="radio" name="rBtn-axis" id="y" value="y" oninput="changeRot()"><label for="y">y</label> <br>
+<input type="radio" name="rBtn-axis" id="z" value="z" checked oninput="changeRot()"><label for="z">z</label>
+
+<p id="pRotate">rotate: z 0deg;</p>
+
+ 
+</body>
+</html>
